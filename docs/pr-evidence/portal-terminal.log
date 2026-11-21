@@ -1,0 +1,24 @@
+Script started on 2026-11-21 14:17:32+05:30 [COMMAND="rtk proxy .venv/bin/python -u /tmp/voxbento-1348-actual-logs-zyx33ns9/serve_local.py" <not executed on terminal>]
+Local app: http://127.0.0.1:60169 | Redis: 127.0.0.1:58571 | database: /tmp/voxbento-1348-actual-logs-zyx33ns9/runtime.db
+INFO:     Started server process [112848]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:60169 (Press CTRL+C to quit)
+meeting_agent service_unreachable
+INFO:     127.0.0.1:53884 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53884 - "GET /static/css/tokens.css?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53892 - "GET /static/css/fonts.css?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53902 - "GET /static/css/home.css?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53898 - "GET /static/css/landing.css?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53916 - "GET /static/css/demo-modal.css?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /static/css/live-demo.css?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53902 - "GET /static/js/demo-player.js?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53884 - "GET /static/js/live-demo.js?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53898 - "GET /static/js/home.js?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53892 - "GET /static/js/demo-modal.js?v=1795250853 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53918 - "GET /static/img/app_icon.png HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53928 - "GET /static/fonts/inter/InterVariable.woff2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53928 - "GET /static/js/live-demo-core.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53932 - "GET /api/demo/manifest HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53928 - "GET /api/demo/live/config HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53928 - "GET /static/img/favicon.ico HTTP/1.1" 200 OK

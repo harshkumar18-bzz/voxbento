@@ -1,0 +1,61 @@
+Script started on 2026-11-21 14:17:00+05:30 [COMMAND="rtk proxy .venv/bin/python -u /tmp/voxbento-1348-actual-logs-zyx33ns9/runtime_check.py" <not executed on terminal>]
+Starting actual VoxBento workers with native Redis 7.4.0 and an isolated SQLite database
+BEGIN idle webhook measurement: backend=db; warmup=1.2s; window=5s
+SQL backend=db: UPDATE webhook_deliveries SET status=? WHERE webhook_deliveries.id IN (SELECT webhook_deliveries.id 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? ORDER BY webhook_deliveries.id
+ LIMIT ? OFFSET ?) AND webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? RETURNING id, subscription_id, event_type, payload, payload_version, status, attempt_count, next_attempt_at, last_error, created_at
+SQL backend=db: UPDATE webhook_deliveries SET status=? WHERE webhook_deliveries.id IN (SELECT webhook_deliveries.id 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? ORDER BY webhook_deliveries.id
+ LIMIT ? OFFSET ?) AND webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? RETURNING id, subscription_id, event_type, payload, payload_version, status, attempt_count, next_attempt_at, last_error, created_at
+SQL backend=db: UPDATE webhook_deliveries SET status=? WHERE webhook_deliveries.id IN (SELECT webhook_deliveries.id 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? ORDER BY webhook_deliveries.id
+ LIMIT ? OFFSET ?) AND webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? RETURNING id, subscription_id, event_type, payload, payload_version, status, attempt_count, next_attempt_at, last_error, created_at
+SQL backend=db: UPDATE webhook_deliveries SET status=? WHERE webhook_deliveries.id IN (SELECT webhook_deliveries.id 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? ORDER BY webhook_deliveries.id
+ LIMIT ? OFFSET ?) AND webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? RETURNING id, subscription_id, event_type, payload, payload_version, status, attempt_count, next_attempt_at, last_error, created_at
+SQL backend=db: UPDATE webhook_deliveries SET status=? WHERE webhook_deliveries.id IN (SELECT webhook_deliveries.id 
+FROM webhook_deliveries 
+WHERE webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? ORDER BY webhook_deliveries.id
+ LIMIT ? OFFSET ?) AND webhook_deliveries.status IN (?, ?) AND webhook_deliveries.next_attempt_at <= ? RETURNING id, subscription_id, event_type, payload, payload_version, status, attempt_count, next_attempt_at, last_error, created_at
+END idle webhook measurement: backend=db; database statements=5
+BEGIN idle webhook measurement: backend=redis; warmup=1.2s; window=5s
+END idle webhook measurement: backend=redis; database statements=0
+Redis restarted with empty memory; durable email recovered and accepted by local SMTP
+2026-11-21 14:17:15,613 WARNING portal.job_queue: Job queue unavailable; using database polling
+Redis stopped; database fallback delivered email to local SMTP
+INFO:     Started server process [112409]
+INFO:     Waiting for application startup.
+2026-11-21 14:17:16,295 INFO portal.websockets.reaper: Starting WebSocket session reaper loop (interval=3.0s)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:35045 (Press CTRL+C to quit)
+INFO:     127.0.0.1:48576 - "GET / HTTP/1.1" 200 OK
+2026-11-21 14:17:16,409 INFO httpx: HTTP Request: GET http://127.0.0.1:35045/ "HTTP/1.1 200 OK"
+INFO:     Shutting down
+2026-11-21 14:17:16,549 INFO httpx: HTTP Request: GET http://floor-bot:8080/status "HTTP/1.1 307 Temporarily Moved for Domain Name Expansion"
+2026-11-21 14:17:16,549 WARNING portal.meeting_source: meeting_agent service_unreachable
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [112409]
+{
+  "commit": "32108b6",
+  "environment": "Native Redis 7.4.0 + SQLite; isolated loopback SMTP",
+  "measurement": "Idle webhook worker, 5 seconds per backend after 1.2-second warmup",
+  "checks": {
+    "Post-commit enqueue": "PASS",
+    "Rollback discards hint": "PASS",
+    "Redis restart recovery + SMTP delivery": "PASS",
+    "Scheduled delivery waits until due": "PASS",
+    "Redis outage + database fallback delivery": "PASS",
+    "Local portal HTTP 200": "PASS"
+  },
+  "db_idle_webhook_sql_statements": 5,
+  "redis_idle_webhook_sql_statements": 0,
+  "smtp_messages_accepted": 3,
+  "scope": "Backend runtime evidence; no UI change. Media stack and paid AI providers not exercised."
+}
+
+Script done on 2026-11-21 14:17:17+05:30 [COMMAND_EXIT_CODE="0"]
